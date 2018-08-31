@@ -22,3 +22,7 @@ point in the system, thus ingoing traffic is bigger than outgoing.
 As the system is congested, each request is updating the cache, with no way
 of knowing that the other requests have updated it, and no outgoing traffic can
 reach the client in time, and hence a timeout is observed.
+
+## Workaround / Fix
+
+A possible fix for this may be preparing the new cached version of the document, before the old cache has expired.
