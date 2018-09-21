@@ -37,6 +37,7 @@ You can try running this in a browser and see how it works. This may just be a c
 The nth-of-type counts all elements that *appear* as elements from this type, even though they aren't exactly. I.e. it does a fuzzy match.
 In the same time though it only applies the styles to the elements which are perfectly matched. Though it counts all of them.
 
+```
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,7 +61,58 @@ In the same time though it only applies the styles to the elements which are per
 
 </body>
 </html>
+```
 
 ## Sources
 
 [Writing efficient CSS selectors](https://csswizardry.com/2011/09/writing-efficient-css-selectors/)
+
+# How does CSS measure distance?
+
+There are several ways to specify distance with CSS, but generally they can be separated in relative and absolute units.
+
+__Relative CSS units__:
+Name         |    Definition            |
+|------------|--------------------------|
+|  unit      |    relative to           |
+|  em	     |    font size of the element           |
+|  ex	     |    x-height of the element’s font           |
+|  cap	     |    cap height (the nominal height of capital letters) of the element’s font           |
+|  ch	     |    average character advance of a narrow glyph in the element’s font, as represented by the “0” (ZERO, U+0030) glyph           |
+|  ic	     |    average character advance of a fullwidth glyph in the element’s font, as represented by the “水” (CJK water ideograph, U+6C34) glyph           |
+|  rem	     |    font size of the root element           |
+|  lh	     |    line height of the element           |
+|  rlh	     |    line height of the root element           |
+|  vw	     |    1% of viewport’s width           |
+|  vh	     |    1% of viewport’s height           |
+|  vi	     |    1% of viewport’s size in the root element’s inline axis           |
+|  vb	     |    1% of viewport’s size in the root element’s block axis           |
+|  vmin 	 |    1% of viewport’s smaller dimension           |
+|  vmax 	 |    1% of viewport’s larger dimension           |
+
+
+Child elements do not inherit the relative values as specified for their parent; they inherit the computed values.
+
+__Absolute CSS units__:
+
+| unit  | name	                     |  equivalence |
+| ------|----------------------------|-------------------|
+| cm	  |  centimeters             | 1cm = 96px/2.54    |
+| mm	  |  millimeters             | 1mm = 1/10th of 1cm    |
+| Q	      |  quarter-millimeters     | 1Q = 1/40th of 1cm    |
+| in	  |  inches                	 | 1in = 2.54cm = 96px    |
+| pc	  |  picas                	 | 1pc = 1/6th of 1in    |
+| pt	  |  points                	 | 1pt = 1/72th of 1in    |
+| px	  |  pixels                	 | 1px = 1/96th of 1in    |
+
+
+## Sources:
+[CSS Values and Units Module Level 4
+W3C First Public Working Draft, 14 August 2018](https://www.w3.org/TR/css-values/#lengths)
+
+__TODO:__
+
+Write about the CSS px definition being the smallest visible line, hence different on different
+devices.
+
+https://www.w3.org/Style/Examples/007/units.en.html
