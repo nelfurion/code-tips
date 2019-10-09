@@ -116,3 +116,24 @@ Write about the CSS px definition being the smallest visible line, hence differe
 devices.
 
 https://www.w3.org/Style/Examples/007/units.en.html
+
+# Writing good CSS styles
+
+__TODO:__ Eventually expand this to a whole topic.
+
+## Margins and paddings
+When adding a padding to a DOM element we squeeze the contents of that element inside it - e.g. a _padding-bottom of 5px_ moves the content up, and a _padding-top of 5px_ moves it down.
+
+When adding a margin to a DOM element - we: 
+1) push the element away - e.g. when the margin is on the left or on the top, or 
+2) we push other elements away from this one - e.g. when the margin is on the right or on the bottom. 
+
+Although the margin is a part of the element, it is not displayed this way. Thus an element's border will wrap around the paddding, but will not wrap around the margin. Hence it's always better to put margins on separate delimiting DOM elements. This way if we later want to style the content element - e.g. give it a _cursor:pointer_ the pointer will only be applied to the element itself and the whole of it will be contained inside it's border.
+
+If we cannot put another delimiting element, then it is best to put the margin on the root of the DOM element if e.g. we have a media tile with a complex content. This way we are avoiding confusions around margins comming from inside the content of the element - e.g. we have two versions of the element - one is displayed on Desktop and another on Mobile, and the Desktop has a bigger margin-bottom. 
+
+This is harder to fix since:
+1) we only see it conditionally
+2) we need to edit the element's guts.
+
+What is better is to follow an Object Oriented approach, where the element is an object in the page, and as such it should only be concerned with how it can render itself given the space it is provided with, and not with how other elements should move when it is put to the page. This second responsibility should only be given to parent elements or the page itself.
