@@ -137,3 +137,7 @@ This is harder to fix since:
 2) we need to edit the element's guts.
 
 What is better is to follow an Object Oriented approach, where the element is an object in the page, and as such it should only be concerned with how it can render itself given the space it is provided with, and not with how other elements should move when it is put to the page. This second responsibility should only be given to parent elements or the page itself.
+
+## Sources
+
+Not adding sources to this section, as I haven't yet found any rule about this apart from my own thoughts.
